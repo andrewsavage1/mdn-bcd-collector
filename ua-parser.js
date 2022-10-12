@@ -31,6 +31,13 @@ const parseUA = (userAgent, browsers) => {
     inBcd: undefined
   };
 
+  if (userAgent.includes('Cobalt')) {
+    ua.browser = {name: 'Cobalt', version: '1.0.0', major: '1'};
+    ua.engine = {name: 'Blink', version: '123'};
+    ua.device = {vendor: 'Vendor', model: 'Model', type: 'Type'};
+    ua.cpu = {architecture: 'Arch'};
+  }
+
   if (!ua.browser.name) {
     return data;
   }
