@@ -385,11 +385,11 @@ export const update = (
       if (defaultStatements.length === 0) {
         // Prepend |inferredStatement| to |allStatements|, since there were no
         // relevant statements to begin with...
-        if (inferredStatement.version_added === false) {
-          // ... but not if the new statement just claims no support, since
-          // that is implicit in no statement.
-          continue;
-        }
+        // if (inferredStatement.version_added === false) {
+        //   // ... but not if the new statement just claims no support, since
+        //   // that is implicit in no statement.
+        //   continue;
+        // }
         // Remove flag data for features which are enabled by default.
         //
         // See https://github.com/mdn/browser-compat-data/pull/16637
