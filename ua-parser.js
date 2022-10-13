@@ -32,10 +32,20 @@ const parseUA = (userAgent, browsers) => {
   };
 
   if (userAgent.includes('Cobalt')) {
-    ua.browser = {name: 'Cobalt', version: '23.0.0', major: '23'};
-    ua.engine = {name: 'Blink', version: '123'};
+    const version = userAgent
+      .slice(
+        userAgent.indexOf('Cobalt/') + 7,
+        userAgent.indexOf('-', userAgent.indexOf('Cobalt/') + 7)
+      )
+      .replace('lts.', '');
+    ua.browser = {
+      name: 'Cobalt',
+      version,
+      major: version.slice(0, version.indexOf('.'))
+    };
+    ua.engine = {name: 'Blink', version: '1'};
     ua.device = {vendor: 'Vendor', model: 'Model', type: 'Type'};
-    ua.cpu = {architecture: 'Arch'};
+    ua.cpu = {architecture: 'Architecture'};
   }
 
   if (!ua.browser.name) {
