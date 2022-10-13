@@ -32,7 +32,7 @@ const parseUA = (userAgent, browsers) => {
   };
 
   if (userAgent.includes('Cobalt')) {
-    ua.browser = {name: 'Cobalt', version: '1.0.0', major: '1'};
+    ua.browser = {name: 'Cobalt', version: '23.0.0', major: '23'};
     ua.engine = {name: 'Blink', version: '123'};
     ua.device = {vendor: 'Vendor', model: 'Model', type: 'Type'};
     ua.cpu = {architecture: 'Arch'};
